@@ -19,6 +19,7 @@ div.calculator-body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 24px;
 }
 
 div.display{
@@ -58,6 +59,7 @@ button {
     font-size: 32px;
     font-weight: 400;
     justify-self: center;
+    transition: 100ms;
 
 }
 
@@ -65,14 +67,30 @@ button.gray {
     background-color: #A5A5A5;
 }
 
+button.gray:active {
+    background-color: white;
+}
+
 button.orange {
     background-color: #FEA00A;
     color: white;
+    font-size: 48px;
+    line-height: 48px;
+    font-weight: 300;
+    padding: 11px 0 16px 0;
+}
+
+button.orange:active {
+    background-color: #FFC871;
 }
 
 button.black {
     background-color: #333;
     color: white;
+}
+
+button.black:active {
+    background-color: #A5A5A5;
 }
 
 button.black.lrg {
