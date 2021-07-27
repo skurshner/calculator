@@ -1,3 +1,9 @@
+//  inital variables
+let numDisplay = '';
+let firstNumber = '';
+let secondNumber = '';
+let operator = '';
+
 // detect function buttons
 const addbtn = document.getElementById('add');
 const subtractbtn = document.getElementById('subtract');
@@ -15,50 +21,70 @@ const display = document.querySelector('h1');
 // basic calculator functions
 
     // add
-    add = (a,b) => a + b;
+    add = (firstNumber,secondNumber) => firstNumber + secondNumber;
 
     // subtract
-    subtract = (a,b) => a - b;
+    subtract = (firstNumber,secondNumber) => firstNumber - secondNumber;
 
     // multiply
-    multiply = (a,b) => a * b;
+    multiply = (firstNumber,secondNumber) => firstNumber * secondNumber;
 
     // divide 
-    divide = (a,b) => a / b;
+    divide = (firstNumber,secondNumber) => firstNumber / secondNumber;
 
 // operator function 
-function operate (operator,a,b) {
+function operate (operator,firstNumber,secondNumber) {
     if (operator === "+") {
-        return add(a,b);
+        return add(firstNumber,secondNumber);
     } else if (operator === "-") {
-        return subtract(a,b);
+        return subtract(firstNumber,secondNumber);
     } else if (operator === "*") {
-        return multiply(a,b);
+        return multiply(firstNumber,secondNumber);
     } else if (operator === "/") {
-        return divide(a,b);
+        return divide(firstNumber,secondNumber);
     }   
 }
 
 // add values to string
-let firstNumber = '';
-function addToString (number) {
-    firstNumber = firstNumber.concat(number);
-    displayValue(firstNumber);
+function addToFirstNumber (number) {
+    numDisplay = numDisplay.concat(number);
+    displayValue(numDisplay);
+    firstNumber = parseFloat(numDisplay);
+    // console.log(firstNumber);
+    console.log("First number is " + firstNumber);
 }
 
-// clear function
+function addToSecondNumber (number) {
+    numDisplay = numDisplay.concat(number);
+    displayValue(numDisplay);
+    secondNumber = parseFloat(numDisplay);
+    // console.log(firstNumber);
+    console.log("Second number is " + secondNumber);
+}
+
+// clear entered numbers on display
 function clear () {
-    firstNumber = '';
+    numDisplay = '';
     displayValue(0);
 }
 
-// display function
+// show entered numbers on display
 function displayValue(n) {
     display.textContent = n;
 }
 
+// store entered numbers as string into firstNumber
+function storeFirstNumber (string) {
+    firstNumber = parseFloat(numDisplay);
+}
+
+
 // function buttons
-addbtn.addEventListener('click', () => console.log('add'));
+addbtn.addEventListener('click', () => {
+    operator = "+";
+    clear();
+    console.log(operator)
+});
 
 subtractbtn.addEventListener('click', () => console.log('subtract'));
 
@@ -73,7 +99,11 @@ clearbtn.addEventListener('click', () => clear());
 // number buttons
 numBtns.forEach((button) => {
     button.addEventListener('click', () => {
-      addToString(button.id);
+        if (operator === '') {
+            addToFirstNumber(button.id);
+        }   else {
+            addToSecondNumber(button.id);
+        }
+        
     });
   });
-
