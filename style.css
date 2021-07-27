@@ -2,27 +2,81 @@ body {
     background-color: #3E3A35;
     margin: 0;
     padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont;
 }
 
-.container {
+div.container {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.calculator-body {
+div.calculator-body {
     height: 812px;
     width: 375px;
     background-color: black;
-    padding: 190px 16px 70px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.display{
+    margin-top: 190px;
+    width: 375px;
+    padding: 0px 16px 0px 16px;
 }
 
 h1 {
     margin: 0px;
     color: white;
     text-align: right;
-    font-family: -apple-system, BlinkMacSystemFont;
     font-weight: 300;
     font-size: 92px;    
+}
+
+div.buttons {
+    width: 100%;
+}
+
+div.button-row {
+    width: 100%;
+    padding: 5px 16px 5px 16px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+div.button-row.bottom {
+    grid-template-columns: 2fr 1fr 1fr;
+}
+
+button {
+    height: 75px;
+    width: 75px;
+    border-radius: 75px;
+    border: none;
+    font-size: 32px;
+    font-weight: 400;
+    justify-self: center;
+
+}
+
+button.gray {
+    background-color: #A5A5A5;
+}
+
+button.orange {
+    background-color: #FEA00A;
+    color: white;
+}
+
+button.black {
+    background-color: #333;
+    color: white;
+}
+
+button.black.lrg {
+    width: 165px;
+    text-align: left;
+    padding-left: 28px
 }
