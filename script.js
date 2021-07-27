@@ -3,6 +3,7 @@ let numDisplay = '';
 let firstNumber = '';
 let secondNumber = '';
 let operator = '';
+let numberFocus = 1;
 
 // detect function buttons
 const addbtn = document.getElementById('add');
@@ -35,22 +36,23 @@ const display = document.querySelector('h1');
 // operator function 
 function operate (operator,firstNumber,secondNumber) {
     if (operator === "+") {
-        return add(firstNumber,secondNumber);
+        firstNumber = add(firstNumber,secondNumber);
     } else if (operator === "-") {
-        return subtract(firstNumber,secondNumber);
+        firstNumber = subtract(firstNumber,secondNumber);
     } else if (operator === "*") {
-        return multiply(firstNumber,secondNumber);
+        firstNumber = multiply(firstNumber,secondNumber);
     } else if (operator === "/") {
-        return divide(firstNumber,secondNumber);
-    }   
+        firstNumber = divide(firstNumber,secondNumber);
+    }
+    numberFocus = 1;
+    displayValue(firstNumber);   
 }
 
-// add values to string
+// add values to number variables
 function addToFirstNumber (number) {
     numDisplay = numDisplay.concat(number);
     displayValue(numDisplay);
     firstNumber = parseFloat(numDisplay);
-    // console.log(firstNumber);
     console.log("First number is " + firstNumber);
 }
 
@@ -58,14 +60,20 @@ function addToSecondNumber (number) {
     numDisplay = numDisplay.concat(number);
     displayValue(numDisplay);
     secondNumber = parseFloat(numDisplay);
-    // console.log(firstNumber);
     console.log("Second number is " + secondNumber);
 }
 
 // clear entered numbers on display
-function clear () {
+function clearBtn () {
     numDisplay = '';
     displayValue(0);
+    if (numberFocus === 1){
+        firstNumber = '';
+    } else {
+        firstNumber = '';
+        secondNumber = '';
+    }
+    
 }
 
 // show entered numbers on display
@@ -73,33 +81,43 @@ function displayValue(n) {
     display.textContent = n;
 }
 
-// store entered numbers as string into firstNumber
-function storeFirstNumber (string) {
-    firstNumber = parseFloat(numDisplay);
-}
-
-
 // function buttons
 addbtn.addEventListener('click', () => {
+    numDisplay = '';
     operator = "+";
-    clear();
+    numberFocus = 2;
     console.log(operator)
 });
 
-subtractbtn.addEventListener('click', () => console.log('subtract'));
+subtractbtn.addEventListener('click', () => {
+    numDisplay = '';
+    operator = "-";
+    numberFocus = 2;
+    console.log(operator)
+});
 
-multiplybtn.addEventListener('click', () => console.log('multipy'));
+multiplybtn.addEventListener('click', () => {
+    numDisplay = '';
+    operator = "*";
+    numberFocus = 2;
+    console.log(operator)
+});
 
-dividebtn.addEventListener('click', () => console.log('divide'));
+dividebtn.addEventListener('click', () => {
+    numDisplay = '';
+    operator = "/";
+    numberFocus = 2;
+    console.log(operator)
+});
 
-operatebtn.addEventListener('click', () => console.log('operate'));
+operatebtn.addEventListener('click', () => operate(operator,firstNumber,secondNumber));
 
-clearbtn.addEventListener('click', () => clear());
+clearbtn.addEventListener('click', () => clearBtn());
 
-// number buttons
+// retrieve numbers from number buttons
 numBtns.forEach((button) => {
     button.addEventListener('click', () => {
-        if (operator === '') {
+        if (numberFocus === 1) {
             addToFirstNumber(button.id);
         }   else {
             addToSecondNumber(button.id);
