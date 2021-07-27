@@ -1,3 +1,17 @@
+// detect function buttons
+const addbtn = document.getElementById('add');
+const subtractbtn = document.getElementById('subtract');
+const multiplybtn = document.getElementById('multiply');
+const dividebtn = document.getElementById('divide');
+const operatebtn = document.getElementById('operate');
+const clearbtn = document.getElementById('clear');
+
+// detect number buttons
+const numBtns = document.querySelectorAll(".number")
+
+// detect display
+const display = document.querySelector('h1');
+
 // basic calculator functions
 
 // add
@@ -24,3 +38,29 @@ function operate (operator,a,b) {
         return divide(a,b);
     }   
 }
+
+// display function
+function displayValue(n) {
+    display.textContent = n;
+}
+
+// function buttons
+addbtn.addEventListener('click', () => console.log('add'));
+
+subtractbtn.addEventListener('click', () => console.log('subtract'));
+
+multiplybtn.addEventListener('click', () => console.log('multipy'));
+
+dividebtn.addEventListener('click', () => console.log('divide'));
+
+operatebtn.addEventListener('click', () => console.log('operate'));
+
+clearbtn.addEventListener('click', () => console.log('clear'));
+
+// number buttons
+numBtns.forEach((button) => {
+    button.addEventListener('click', () => {
+      displayValue(button.id);
+    });
+  });
+
