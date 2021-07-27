@@ -1,0 +1,28 @@
+body {
+    background-color: #3E3A35;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator-body {
+    height: 812px;
+    width: 375px;
+    background-color: black;
+    padding: 190px 16px 70px 16px;
+}
+
+h1 {
+    margin: 0px;
+    color: white;
+    text-align: right;
+    font-family: -apple-system, BlinkMacSystemFont;
+    font-weight: 300;
+    font-size: 92px;    
+}
