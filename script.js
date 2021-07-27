@@ -14,17 +14,17 @@ const display = document.querySelector('h1');
 
 // basic calculator functions
 
-// add
-add = (a,b) => a + b;
+    // add
+    add = (a,b) => a + b;
 
-// subtract
-subtract = (a,b) => a - b;
+    // subtract
+    subtract = (a,b) => a - b;
 
-// multiply
-multiply = (a,b) => a * b;
+    // multiply
+    multiply = (a,b) => a * b;
 
-// divide 
-divide = (a,b) => a / b;
+    // divide 
+    divide = (a,b) => a / b;
 
 // operator function 
 function operate (operator,a,b) {
@@ -37,6 +37,19 @@ function operate (operator,a,b) {
     } else if (operator === "/") {
         return divide(a,b);
     }   
+}
+
+// add values to string
+let firstNumber = '';
+function addToString (number) {
+    firstNumber = firstNumber.concat(number);
+    displayValue(firstNumber);
+}
+
+// clear function
+function clear () {
+    firstNumber = '';
+    displayValue(0);
 }
 
 // display function
@@ -55,12 +68,12 @@ dividebtn.addEventListener('click', () => console.log('divide'));
 
 operatebtn.addEventListener('click', () => console.log('operate'));
 
-clearbtn.addEventListener('click', () => console.log('clear'));
+clearbtn.addEventListener('click', () => clear());
 
 // number buttons
 numBtns.forEach((button) => {
     button.addEventListener('click', () => {
-      displayValue(button.id);
+      addToString(button.id);
     });
   });
 
