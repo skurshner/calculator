@@ -22,26 +22,28 @@ const display = document.querySelector('h1');
 
 // operator function 
 function operate (operator,firstNumber,secondNumber) {
-    
-    if (operator === "+") {
-        output = add(firstNumber,secondNumber);
-        truncate()
-    } else if (operator === "-") {
-        output = subtract(firstNumber,secondNumber);
-        truncate()
-    } else if (operator === "*") {
-        output = multiply(firstNumber,secondNumber);
-        truncate()
-    } else if (operator === "/") {
-        if (secondNumber === 0) {
-            displayValue('nice try');
-        } else {
-            output = divide(firstNumber,secondNumber);
+    if (firstNumber !== '' && secondNumber !== '') {
+        if (operator === "+") {
+            output = add(firstNumber,secondNumber);
             truncate()
+        } else if (operator === "-") {
+            output = subtract(firstNumber,secondNumber);
+            truncate()
+        } else if (operator === "*") {
+            output = multiply(firstNumber,secondNumber);
+            truncate()
+        } else if (operator === "/") {
+            if (secondNumber === 0) {
+                displayValue('nice try');
+            } else {
+                output = divide(firstNumber,secondNumber);
+                truncate()
+            }
         }
+        numberFocus = 2;
+        numDisplay = '';
     }
-    numberFocus = 2;
-    numDisplay = '';
+
 }
 
 // truncate display if necessary
@@ -132,8 +134,8 @@ function displayValue(n) {
     });
 
     operatebtn.addEventListener('click', () => {
-        operate(operator,firstNumber,secondNumber)
-        firstNumber = output;
+            operate(operator,firstNumber,secondNumber)
+            firstNumber = output;
     });
 
     clearbtn.addEventListener('click', () => clearBtn());
