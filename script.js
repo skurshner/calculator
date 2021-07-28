@@ -43,7 +43,6 @@ function operate (operator,firstNumber,secondNumber) {
         numberFocus = 2;
         numDisplay = '';
     }
-
 }
 
 // truncate display if necessary
@@ -68,7 +67,6 @@ function truncate (number) {
 
     // divide 
     divide = (firstNumber,secondNumber) => firstNumber / secondNumber;
-
 
 // add values to number variables
     function addToFirstNumber (number) {
@@ -95,8 +93,7 @@ function clearBtn () {
         firstNumber = '';
         secondNumber = '';
         numberFocus = 1;
-    }
-    
+    }  
 }
 
 // show entered numbers on display
@@ -150,4 +147,3 @@ numBtns.forEach((button) => {
         }   
     });
   });
-
