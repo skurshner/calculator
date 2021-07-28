@@ -1,0 +1,1 @@
+Final assigment of The Odin Project Foundations course. I created a (mostly) functional calculator based off of the design of the iOS calulator app. It will do the 4 main math functions as well as work continously until cleared. Percentages, negative numbers and decimals not done yet, but I may revisit this in the future to add.
