@@ -1,5 +1,5 @@
 body {
-    background-color: #3E3A35;
+    background-color: black;
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont;
@@ -13,7 +13,6 @@ div.container {
 }
 
 div.calculator-body {
-    height: 812px;
     width: 375px;
     background-color: black;
     display: flex;
@@ -23,8 +22,8 @@ div.calculator-body {
 }
 
 div.display{
-    margin-top: 190px;
     width: 375px;
+    overflow: hidden;
     padding: 0px 16px 0px 16px;
 }
 
